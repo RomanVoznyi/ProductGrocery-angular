@@ -1,0 +1,39 @@
+<h1 class="pageTitle">{{ title | titlecase }}</h1>
+
+<input
+  type="text"
+  class="pageTitleSearch"
+  placeholder="Filter products..."
+  [(ngModel)]="term"
+/>
+
+<p *ngIf="loading" class="loadingBox">Loading...</p>
+
+<div *ngIf="productsService.products" class="productList">
+  <app-product
+    *ngFor="
+      let product of productsService.products | filterProducts : term;
+      let i = index
+    "
+    [product]="product"
+  ></app-product>
+</div>
+
+<app-modal *ngIf="modalService.isVisible$ | async" title="Create new Product">
+  <app-create-product></app-create-product>
+</app-modal>
+
+<button
+  class="addButton"
+  *ngIf="!(modalService.isVisible$ | async)"
+  (click)="modalService.open()"
+>
+  +
+</button>
+<button
+  class="addButton open"
+  *ngIf="modalService.isVisible$ | async"
+  (click)="modalService.close()"
+>
+  &times;
+</button>

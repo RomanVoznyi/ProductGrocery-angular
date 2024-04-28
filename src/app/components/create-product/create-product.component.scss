@@ -1,0 +1,28 @@
+.createProductInput {
+  display: block;
+  max-width: 400px;
+  width: 100%;
+  border: 1px solid #dedede;
+  padding: 5px 10px;
+  margin-bottom: 20px;
+}
+
+.createProductButton {
+  display: block;
+  margin: 0 auto;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-weight: 600;
+  text-align: center;
+  border: 1px solid #dedede;
+  background-color: blue;
+  color: white;
+  cursor: pointer;
+}
+
+.errorMessage {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 20px;
+  color: red;
+}

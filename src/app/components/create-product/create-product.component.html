@@ -1,0 +1,16 @@
+<form [formGroup]="form" (ngSubmit)="submit()">
+  <input
+    type="text"
+    class="createProductInput"
+    placeholder="Product name"
+    formControlName="title"
+    appFocus
+  />
+
+  <p class="errorMessage" *ngIf="title.errors?.['minlength'] && title.touched">
+    Product title must be at least 6 characters long. Current length -
+    {{ title.value.length }}
+  </p>
+
+  <button type="submit" class="createProductButton">Create</button>
+</form>

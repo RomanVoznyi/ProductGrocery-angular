@@ -1,0 +1,31 @@
+<div class="productCard">
+  <img [src]="product.image" [alt]="product.title" class="productCardImage" />
+  <h2 class="productCardTitle">{{ product.title }}</h2>
+  <p>
+    Price:
+    <span class="productCardPrice">{{
+      product.price | currency : "UAH "
+    }}</span>
+  </p>
+
+  <button
+    class="detailsButton"
+    [ngClass]="{
+      bgYellow: !details,
+      bgBlue: details
+    }"
+    (click)="details = !details"
+  >
+    {{ details ? "Hide" : "Show" }} Details
+  </button>
+
+  <div *ngIf="details" class="productDetails">
+    <p>{{ product.description }}</p>
+    <p>
+      Rate:
+      <span [ngStyle]="{ fontWeight: 'bold' }">
+        {{ (product.rating?.rate | number : "1.2-4") || "N/A" }}
+      </span>
+    </p>
+  </div>
+</div>

@@ -1,0 +1,6 @@
+<div class="modalOverlay" (click)="modalService.close()"></div>
+
+<div class="modalContentWrapper">
+  <h2 class="modalTitle">{{ title | titlecase }}</h2>
+  <ng-content></ng-content>
+</div>
